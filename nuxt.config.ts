@@ -54,6 +54,7 @@ export default defineNuxtConfig({
         ? process.env.SITE_URL
         : 'https://manyacg.top',
     name: 'ManyACG'
+
   },
 
   robots: {
@@ -61,7 +62,8 @@ export default defineNuxtConfig({
   },
 
   sitemap: {
-    exclude: ['/register', '/profile']
+    exclude: ['/register', '/profile'],
+    zeroRuntime: true
   },
 
   seo: {
