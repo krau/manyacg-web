@@ -101,8 +101,9 @@ const r18StatusIcon = computed(() => {
   return piniaStore.r18 ? 'i-mdi:check-circle' : 'i-mdi:close-circle'
 })
 
+const isSmallWindow = useSmallWindow()
 const showFabButton = computed(() => {
-  return !useSmallWindow().value
+  return !isSmallWindow.value
 })
 
 const showPopup = ref(false)
