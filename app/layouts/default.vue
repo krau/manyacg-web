@@ -3,15 +3,11 @@
     <search-dialog v-model:show="showSearchDialog" />
 
     <var-app-bar title-position="center" :fixed="true" :placeholder="true">
-      <var-link text-color="#fff" underline="none" text-size="large" to="/">ManyACG</var-link>
+      <var-link text-color="#fff" underline="none" text-size="large" to="/">
+        <img :src="bannerSrc" alt="ManyACG" class="banner-logo" />
+      </var-link>
       <template #left>
-        <var-button
-          color="transparent"
-          text-color="#fff"
-          text
-          @click="showPopup = true"
-          title="菜单"
-        >
+        <var-button color="transparent" text-color="#fff" text @click="showPopup = true" title="菜单">
           <var-icon name="menu" size="24" />
         </var-button>
         <var-button text color="transparent" @click="showSearchDialog = true" title="搜索">
@@ -47,12 +43,8 @@
         <var-divider />
         <var-space direction="column" size="large">
           <template v-for="item in menuItems" :key="item.text">
-            <popup-menu-item
-              :icon-name="item.iconName"
-              :text="item.text"
-              :to="item.to"
-              @click="item.onClick ? item.onClick() : (showPopup = false)"
-            />
+            <popup-menu-item :icon-name="item.iconName" :text="item.text" :to="item.to"
+              @click="item.onClick ? item.onClick() : (showPopup = false)" />
           </template>
         </var-space>
       </div>
@@ -67,6 +59,8 @@
 <script lang="ts" setup>
 import type { MyIPResponse } from '~/types/artwork'
 import { onMounted } from 'vue'
+
+const bannerSrc = ref('/banner.webp')
 
 const toggleR18 = () => {
   const piniaStore = usePiniaStore()
@@ -94,6 +88,11 @@ const checkUserLocation = async () => {
 
 onMounted(() => {
   checkUserLocation()
+
+  const now = new Date()
+  if (now.getMonth() === 11 && now.getDate() === 25) {
+    bannerSrc.value = '/banner_1225.webp'
+  }
 })
 
 const r18StatusIcon = computed(() => {
@@ -143,13 +142,13 @@ const menuItems = computed(() => [
   },
   ...(isNotCN.value
     ? [
-        {
-          iconName: r18StatusIcon.value,
-          text: 'R18',
-          to: '',
-          onClick: toggleR18
-        }
-      ]
+      {
+        iconName: r18StatusIcon.value,
+        text: 'R18',
+        to: '',
+        onClick: toggleR18
+      }
+    ]
     : [])
 ])
 
@@ -163,6 +162,7 @@ const themeIcon = computed(() => {
 .popup-content {
   width: 300px;
 }
+
 #close-popup-button {
   margin: 8px;
 }
@@ -170,5 +170,12 @@ const themeIcon = computed(() => {
 #popup-top-text {
   margin-top: 8px;
   font-size: 24px;
+}
+
+.banner-logo {
+  display: block;
+  height: 48px;
+  max-width: 100%;
+  object-fit: contain;
 }
 </style>
