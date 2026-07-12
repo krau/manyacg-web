@@ -1,12 +1,11 @@
 <template>
   <div class="container" ref="containerRef" data-allow-mismatch>
     <div class="tag-header">
-      <div class="tag-header-bg" :style="{ background: tagColorTheme.gradient }"></div>
+      <div class="tag-header-bg"></div>
       <div class="tag-info">
-        <div class="tag-badge"
-          :style="{ borderColor: tagColorTheme.bgLight, boxShadow: `0 8px 32px ${tagColorTheme.bgLight}` }">
-          <var-icon name="tag" :size="28" :style="{ color: tagColorTheme.color }" />
-          <h2 class="tag-name" :style="{ color: tagColorTheme.color }">{{ route.params.name }}</h2>
+        <div class="tag-badge">
+          <var-icon name="tag" :size="24" />
+          <h2 class="tag-name">{{ route.params.name }}</h2>
         </div>
         <div class="tag-subtitle">标签下的作品</div>
       </div>
@@ -64,38 +63,6 @@ const { waterfallOption, result, calcItemHeight } = useWaterfall({
   tag: `${route.params.name}`,
   mode: 'index'
 })
-
-// 根据标签名生成颜色主题
-type TagColorTheme = {
-  name: string
-  gradient: string
-  color: string
-  bgLight: string
-  bgDark: string
-}
-
-const tagColorTheme = computed<TagColorTheme>(() => {
-  const themes: TagColorTheme[] = [
-    { name: 'pink', gradient: 'linear-gradient(135deg, rgba(249, 47, 96, 0.12) 0%, rgba(192, 238, 240, 0.15) 100%)', color: '#f92f60', bgLight: 'rgba(249, 47, 96, 0.15)', bgDark: 'rgba(249, 47, 96, 0.2)' },
-    { name: 'purple', gradient: 'linear-gradient(135deg, rgba(156, 39, 176, 0.12) 0%, rgba(103, 58, 183, 0.15) 100%)', color: '#9c27b0', bgLight: 'rgba(156, 39, 176, 0.15)', bgDark: 'rgba(156, 39, 176, 0.2)' },
-    { name: 'blue', gradient: 'linear-gradient(135deg, rgba(33, 150, 243, 0.12) 0%, rgba(57, 197, 187, 0.15) 100%)', color: '#2196f3', bgLight: 'rgba(33, 150, 243, 0.15)', bgDark: 'rgba(33, 150, 243, 0.2)' },
-    { name: 'green', gradient: 'linear-gradient(135deg, rgba(76, 175, 80, 0.12) 0%, rgba(139, 195, 74, 0.15) 100%)', color: '#4caf50', bgLight: 'rgba(76, 175, 80, 0.15)', bgDark: 'rgba(76, 175, 80, 0.2)' },
-    { name: 'orange', gradient: 'linear-gradient(135deg, rgba(255, 152, 0, 0.12) 0%, rgba(255, 193, 7, 0.15) 100%)', color: '#ff9800', bgLight: 'rgba(255, 152, 0, 0.15)', bgDark: 'rgba(255, 152, 0, 0.2)' },
-    { name: 'red', gradient: 'linear-gradient(135deg, rgba(244, 67, 54, 0.12) 0%, rgba(233, 30, 99, 0.15) 100%)', color: '#f44336', bgLight: 'rgba(244, 67, 54, 0.15)', bgDark: 'rgba(244, 67, 54, 0.2)' },
-    { name: 'teal', gradient: 'linear-gradient(135deg, rgba(0, 150, 136, 0.12) 0%, rgba(77, 182, 172, 0.15) 100%)', color: '#009688', bgLight: 'rgba(0, 150, 136, 0.15)', bgDark: 'rgba(0, 150, 136, 0.2)' },
-    { name: 'indigo', gradient: 'linear-gradient(135deg, rgba(63, 81, 181, 0.12) 0%, rgba(92, 107, 192, 0.15) 100%)', color: '#3f51b5', bgLight: 'rgba(63, 81, 181, 0.15)', bgDark: 'rgba(63, 81, 181, 0.2)' }
-  ]
-
-  // 根据标签名的哈希值选择颜色
-  let hash = 0
-  const str = String(tagName)
-  for (let i = 0; i < str.length; i++) {
-    hash = str.charCodeAt(i) + ((hash << 5) - hash)
-  }
-  const index = Math.abs(hash) % themes.length
-  const fallbackTheme = themes[0]!
-  return themes[index] ?? fallbackTheme
-})
 </script>
 
 <style scoped>
@@ -108,7 +75,7 @@ const tagColorTheme = computed<TagColorTheme>(() => {
 .tag-header {
   position: relative;
   margin: 0 -2.5% 40px;
-  padding: 60px 2.5%;
+  padding: 48px 2.5%;
   overflow: hidden;
   text-align: center;
 }
@@ -119,7 +86,7 @@ const tagColorTheme = computed<TagColorTheme>(() => {
   left: 0;
   right: 0;
   bottom: 0;
-  backdrop-filter: blur(10px);
+  background: rgba(192, 238, 240, 0.06);
 }
 
 .tag-info {
@@ -127,32 +94,25 @@ const tagColorTheme = computed<TagColorTheme>(() => {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 12px;
+  gap: 8px;
 }
 
 .tag-badge {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
-  padding: 16px 32px;
-  background: rgba(255, 255, 255, 0.5);
-  backdrop-filter: blur(20px);
-  border-radius: 50px;
-  border: 1px solid;
-  transition: all 0.3s ease;
-}
-
-@media (prefers-color-scheme: dark) {
-  .tag-badge {
-    background: rgba(255, 255, 255, 0.08);
-  }
+  gap: 10px;
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: 1px solid rgba(57, 197, 187, 0.3);
+  color: #39c5bb;
 }
 
 .tag-name {
   margin: 0;
-  font-size: 28px;
+  font-size: 26px;
   font-weight: 700;
   letter-spacing: -0.5px;
+  color: hsla(var(--hsl-text), 0.9);
 }
 
 .tag-subtitle {
@@ -198,15 +158,15 @@ const tagColorTheme = computed<TagColorTheme>(() => {
 
   .tag-header {
     margin: 0 0 24px;
-    padding: 40px 16px;
+    padding: 32px 16px;
   }
 
   .tag-badge {
-    padding: 12px 24px;
+    padding: 8px 16px;
   }
 
   .tag-name {
-    font-size: 22px;
+    font-size: 20px;
   }
 }
 </style>

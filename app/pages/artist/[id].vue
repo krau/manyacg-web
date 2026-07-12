@@ -107,8 +107,7 @@ useSeoMeta({
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, rgba(192, 238, 240, 0.15) 0%, rgba(57, 197, 187, 0.1) 100%);
-  backdrop-filter: blur(5px);
+  background: rgba(192, 238, 240, 0.08);
 }
 
 .artist-info {
@@ -118,12 +117,10 @@ useSeoMeta({
 .artist-details {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 12px;
   padding: 20px 32px;
-  backdrop-filter: blur(10px);
-  border-radius: 16px;
-  border: 1px solid rgba(192, 238, 240, 0.3);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
+  border: 1px solid rgba(192, 238, 240, 0.25);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -154,28 +151,17 @@ useSeoMeta({
   display: flex;
   align-items: center;
   gap: 6px;
-  font-size: 16px;
-  color: hsla(var(--hsl-text), 0.7);
-  padding: 6px 12px;
-  background: rgba(192, 238, 240, 0.25);
-  border-radius: 8px;
-}
-
-@media (prefers-color-scheme: dark) {
-  .artist-username {
-    background: rgba(192, 238, 240, 0.12);
-    color: hsla(var(--hsl-text), 0.85);
-  }
+  font-size: 15px;
+  color: hsla(var(--hsl-text), 0.65);
 }
 
 .artist-source-badge {
-  padding: 6px 16px;
-  background: rgba(57, 197, 187, 0.15);
+  padding: 2px 8px;
   color: #39c5bb;
-  border-radius: 20px;
-  font-size: 14px;
+  border-radius: 4px;
+  font-size: 13px;
   font-weight: 600;
-  border: 1px solid rgba(57, 197, 187, 0.3);
+  border: 1px solid rgba(57, 197, 187, 0.4);
 }
 
 .content-section {

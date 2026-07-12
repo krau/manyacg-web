@@ -116,8 +116,7 @@ const tipText = computed(() => {
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, rgba(57, 197, 187, 0.15) 0%, rgba(192, 238, 240, 0.1) 100%);
-  backdrop-filter: blur(10px);
+  background: rgba(192, 238, 240, 0.06);
 }
 
 .search-info {
@@ -126,20 +125,10 @@ const tipText = computed(() => {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
+  gap: 12px;
 }
 
 .search-icon-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 64px;
-  height: 64px;
-  background: rgba(255, 255, 255, 0.6);
-  backdrop-filter: blur(20px);
-  border-radius: 50%;
-  border: 2px solid rgba(57, 197, 187, 0.3);
-  box-shadow: 0 8px 24px rgba(57, 197, 187, 0.2);
   color: #39c5bb;
 }
 
@@ -156,16 +145,14 @@ const tipText = computed(() => {
 .hybrid-badge {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 8px 20px;
-  background: rgba(255, 200, 0, 0.15);
-  backdrop-filter: blur(10px);
-  border-radius: 20px;
-  border: 1px solid rgba(255, 200, 0, 0.3);
-  color: #d68a00;
-  font-size: 14px;
+  gap: 6px;
+  padding: 3px 10px;
+  background: rgba(255, 200, 0, 0.12);
+  border-radius: 4px;
+  border: 1px solid rgba(255, 200, 0, 0.35);
+  color: #b8860b;
+  font-size: 13px;
   font-weight: 600;
-  box-shadow: 0 4px 12px rgba(255, 200, 0, 0.15);
 }
 
 .content-section {
@@ -208,19 +195,13 @@ const tipText = computed(() => {
     padding: 32px 16px;
   }
 
-  .search-icon-wrapper {
-    width: 56px;
-    height: 56px;
-  }
-
   .search-title {
     font-size: 20px;
     max-width: 90%;
   }
 
   .hybrid-badge {
-    padding: 6px 16px;
-    font-size: 13px;
+    font-size: 12px;
   }
 
   .section-title {

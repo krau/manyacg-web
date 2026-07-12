@@ -57,7 +57,7 @@
                 title="下载">
                 <var-icon name="download-outline" />
               </var-button>
-              <var-button size="large" title="相关推荐" text-color="#f92f60" @click="searchSimilar">
+              <var-button size="large" title="相关推荐" text-color="#39c5bb" @click="searchSimilar">
                 <var-icon name="camera-outline" />
               </var-button>
             </div>
@@ -363,12 +363,13 @@ const searchSimilar = () => {
 }
 
 .artwork-title {
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 20px;
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 16px;
   word-break: break-all;
   overflow-wrap: break-word;
   flex-shrink: 0;
+  line-height: 1.25;
 }
 
 .info-inline-section {
@@ -382,8 +383,10 @@ const searchSimilar = () => {
 .author-source-section {
   display: flex;
   gap: 10px;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
   flex-shrink: 0;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(192, 238, 240, 0.25);
 }
 
 .info-label {
@@ -398,9 +401,9 @@ const searchSimilar = () => {
   display: block;
   text-align: center;
   font-size: 16px;
-  border-radius: 10px;
+  border-radius: 8px;
   padding: 8px 12px;
-  transition: all 0.2s ease;
+  transition: background-color 0.15s ease;
   word-wrap: break-word;
   overflow-wrap: break-word;
   text-decoration: none;
@@ -408,8 +411,7 @@ const searchSimilar = () => {
 }
 
 .info-link:hover {
-  background-color: rgba(192, 238, 240, 0.5);
-  transform: translateY(-1px);
+  background-color: rgba(192, 238, 240, 0.4);
 }
 
 .source-url-link {
@@ -426,17 +428,14 @@ const searchSimilar = () => {
 }
 
 .artwork-description {
-  font-size: 16px;
-  line-height: 1.6;
+  font-size: 15px;
+  line-height: 1.7;
   word-break: break-all;
   overflow-wrap: break-word;
   overflow-y: auto;
   flex: 1;
-  padding: 15px;
-  margin: 15px 0;
-  background-color: rgba(192, 238, 240, 0.1);
-  border-radius: 12px;
-  border-left: 4px solid rgba(192, 238, 240, 0.6);
+  padding: 0 2px;
+  margin: 0 0 20px 0;
   scrollbar-width: thin;
   scrollbar-color: rgba(192, 238, 240, 0.5) transparent;
 }
@@ -465,11 +464,7 @@ const searchSimilar = () => {
 }
 
 .tags-section {
-  margin-bottom: 15px;
-  padding: 15px;
-  background-color: rgba(192, 238, 240, 0.08);
-  border-radius: 12px;
-  border: 1px solid rgba(192, 238, 240, 0.2);
+  margin-bottom: 20px;
   flex-shrink: 0;
 }
 
@@ -481,9 +476,11 @@ const searchSimilar = () => {
 }
 
 .tags-label {
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 600;
-  color: hsla(var(--hsl-text), 0.8);
+  color: hsla(var(--hsl-text), 0.6);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
 }
 
 .artwork-tags {
@@ -510,16 +507,14 @@ const searchSimilar = () => {
 }
 
 .artwork-action {
-  margin-top: 15px;
-  border-radius: 12px;
-  padding: 15px;
+  margin-top: auto;
+  padding: 16px 0 4px;
   display: flex;
   gap: 12px;
   justify-content: center;
   align-items: center;
-  background-color: rgba(192, 238, 240, 0.1);
+  border-top: 1px solid rgba(192, 238, 240, 0.25);
   flex-shrink: 0;
-  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .similar-title {
@@ -570,28 +565,27 @@ const searchSimilar = () => {
   }
 
   .artwork-title {
-    font-size: 20px;
-    margin-bottom: 15px;
+    font-size: 22px;
+    margin-bottom: 12px;
   }
 
   .artwork-action {
-    padding: 12px;
+    padding: 12px 0 4px;
     gap: 10px;
   }
 
   .author-source-section {
     flex-direction: column;
     gap: 8px;
-    margin-bottom: 12px;
+    margin-bottom: 16px;
   }
 
   .artwork-description {
-    padding: 12px;
-    margin: 12px 0;
+    margin-bottom: 16px;
   }
 
   .tags-section {
-    padding: 12px;
+    margin-bottom: 16px;
   }
 }
 

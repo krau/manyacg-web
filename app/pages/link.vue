@@ -263,7 +263,6 @@ useHead({
   font-size: 0.9rem;
   color: hsla(var(--hsl-text), 0.6);
   margin: 0 0 8px 0;
-  font-family: monospace;
 }
 
 .link-description {
